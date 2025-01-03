@@ -1,7 +1,6 @@
 <?php
-spl_autoload_register(function ($className) {
-    // echo "Including...<br>";
-
+spl_autoload_register(function ($className) { //i am using anonymous function
+   
     // Define directories to search for classes
     $directories = [
         __DIR__ . '/../app/controllers/',
@@ -10,14 +9,13 @@ spl_autoload_register(function ($className) {
         __DIR__ . '/../app/routes/'
     ];
 
-    $extension = '.class.php';
+    $extension = '.php';
     $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
 
     // Loop through each directory and check for the class file
     foreach ($directories as $directory) {
         $fullPath = $directory . $className . $extension;
         
-        // echo "Checking path: $fullPath<br>";
 
         if (file_exists($fullPath)) { 
             require_once $fullPath;
@@ -25,8 +23,6 @@ spl_autoload_register(function ($className) {
             return;
         }
     }
-
-    // Optional: Throw an error if the class isn't found
     // echo "<br>Class $className not found.<br>";
 });
 

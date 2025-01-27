@@ -1,0 +1,39 @@
+.resource_page{
+    margin: 50px;
+    color: #000;
+}
+.resource_page div{
+    margin: 20px;
+}
+.resource_page h1{
+    padding: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+.resource_page label{
+    padding: auto;
+    font-size: 20px;
+}
+.resource_page input[type="text"]{
+   width: 300px;
+   height: 30px;
+   outline: none;
+   border-radius: 5px;
+   font-size: 20px;
+}
+.resource_page select{
+    width: 300px;
+    height: 40px;
+ }
+.resource_page input[type="submit"]{
+    width: 200px;
+    height: 40px;
+    margin: 20px 0px 0px 150px;
+    border: none;
+    background-color: #17f534;
+    border-radius: 10px;
+    border-radius: 5px;
+}
+.resource_page input[type="submit"]:hover{
+    background-color:rgb(8, 168, 29);
+}

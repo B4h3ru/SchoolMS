@@ -1,0 +1,126 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Profile container styles */
+.profile-container {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.left-side {
+    width: 25%;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-side h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.left-side p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.buttons button {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}
+
+
+
+.right-side {
+    width: 70%;
+    min-height: 300px;
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+}
+.profile{
+    margin: 100px 100px;
+    
+}
+.profile img{
+    width: 20%;
+}
+#dynamic-content {
+    font-size: 1.2em;
+    color: #555;
+}
+/*subject button AND TEXT*/
+.subject-text h3{text-align: center;
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 20px;
+}
+.subject-text{
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    margin: 20px;
+}
+.arrow i{
+    font-size: 40px;
+    text-align: left;
+    margin: 0px 0 20px 20px ;
+    ma
+    
+}
+.subject-buttons {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    gap: 10px; 
+}
+
+.subject-buttons button {
+   width:300px;
+   height: 200px;
+    margin: 5px 5px;
+    background-color: #3b8a3d;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+}

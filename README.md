@@ -9,7 +9,7 @@
 # add berif diecriptive comment for every function 
 # makesure to check working properly again and again
 # 
-# ############-------- እና በርትታችሁ ስሩ ---------------########
+# ############-------- happy coding ---------------########
 # 
 #  #########------- Have a nice coding time ------##############
 #

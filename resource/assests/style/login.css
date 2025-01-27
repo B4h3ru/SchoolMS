@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color:  #083357;
+}
+.container{
+   padding: 20px;
+    margin: 200px 0px 0px 500px;
+    
+}
+
+.right{
+    
+    width: 350px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 40px;
+}
+.right h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 28px;
+    margin: 10px 0px 30px 0px; 
+
+}
+.right label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+.right input[type="text"] {
+    width: 300px;
+    height: 35px;
+    border: 2px solid black;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+.right input[type="text"]::placeholder{
+ padding: 10px;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: large;
+}
+.chb{
+  margin-top: 5px;
+}
+.chb input[type="checkbox"]{
+  margin-right: 50px;
+}
+.chb a{
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+}
+.right input[type="submit"]{
+   border-radius: 12px;
+    height: 40px;
+    width: 350px;
+    background-color: #45a049;
+    border: none;
+    margin: 20px 0px;
+    color: white;
+    font-size: larger;
+
+}
+.right input[type="submit"]:hover{
+  background-color: #5ed364;
+}
+
+.right h4{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+.typing-text {
+    
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ffffff;
+    margin: -100px 0px 80px -200px;
+    border-right: 3px solid #333; 
+    padding-right: 5px; 
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide text initially */
+    width: 0; /* Start with no visible text */
+    animation: typing 4s steps(30) 1s 1 normal both, blink-caret 0.75s step-end infinite; /* Apply the animation */
+  }
+  
+  /* Keyframes for typing effect */
+  @keyframes typing {
+    from {
+      width: 0; /* Start with no text visible */
+    }
+    to {
+      width: 100%; /* End with full text visible */
+    }
+  }
+  
+  /* Keyframes for blinking cursor */
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent; /* Hide the border (cursor) */
+    }
+  }

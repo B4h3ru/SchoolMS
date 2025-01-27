@@ -1,11 +1,7 @@
 <?php
-require_once __DIR__."/includes/include.inc.php";
+require_once __DIR__."../../../../includes/include.inc.php";
 
-
-// echo "checking........... <br>";
-// echo __DIR__;
-
-$model = new AdminModel();
+$model = new AdminView();
 // $model->checkConnection();
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $fname = $_POST['firstname'];
@@ -16,29 +12,38 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $phonNo = $_POST['phonNo'];
     $email = $_POST['email'];
     $dob = $_POST['dob'];
-    $doj = $_POST['doj'];
-    $actId =$_POST['actId'];
-    $username =$_POST['username'];
-    $pass = $_POST['password'];
+    // $doj = $_POST['doj'];
+    // $actId =$_POST['actId'];
+    // $username =$_POST['username'];
+    // $pass = $_POST['password'];
     $role =$_POST['role'];
-
-    $create = $model->createAccount($actId,$username,$pass,$role);
-    // $add = $model->addAdmin($actId,$fname,$mname,$lname,$address,$gender,$phonNo,$email,$dob,$doj);
+    
+    if($role == 'admin'){
+        $actId ="Ad". floor(microtime(true) * 1000);
+    }else if($role=='teacher'){
+        $actId ="Tch". floor(microtime(true) * 1000);
+    }
+    else if($role=='babysitter'){
+        $actId ="Ba". floor(microtime(true) * 1000);
+    }
+    
+    $username = "@".$fname; //username generating
+    $pass = $fname.rand(1000,9999); // password gentating
+    $create = $model->createA($actId,$username,$pass,$role);
     if($create){
-        $add = $model->addAdmin($actId,$fname,$mname,$lname,$address,$gender,$phonNo,$email,$dob,$doj);
+        $add = $model->registerEmployee($actId,$fname,$mname,$lname,$gender,$address,$phonNo,$email,$role,$dob);
         if($add){
-             echo "Admin successfully added";
+             echo "<script>alert(' successfully added');</script>";
         }
        
     }else{
-        echo "adding failed";
+        echo "<script>alert('failed');</script>";
     }
 
 
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +53,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <title>SchoolMS</title>
 </head>
 <body>
-    <form action="admin-index.php" method="POST" style="text-align: center;">
+    <form action="/SchoolMs/admin" method="POST" style="text-align: center;">
+       <h1>add employee</h1>
        First Name: <input type="text" name="firstname" ><br><br>
        midle Name: <input type="text" name="midlename" ><br><br>
        last Name: <input type="text" name="lastname" ><br><br>
@@ -57,14 +63,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
        phone number: <input type="number" name="phonNo" ><br><br>
        email: <input type="email" name="email" ><br><br>
       date if birth: <input type="date" name="dob" ><br><br>
-      date of join: <input type="date" name="doj" ><br><br>
-      <h1>create Account </h1>
-      Account ID : <input type="text" name="actId" ><br><br>
-      UesrName : <input type="text" name="username"><br><br>
-      password : <input type="password" name="password"><br><br>
+      <!-- date of join: <input type="date" name="doj" ><br><br> -->
+      <!-- <h1>create Account </h1> -->
+      <!-- Account ID : <input type="text" name="actId" ><br><br> -->
+      <!-- UesrName : <input type="text" name="username"><br><br> -->
+      <!-- password : <input type="password" name="password"><br><br> -->
       Role : <select name="role" id="">
                 <option value="admin">admin</option>
-                <option value="student">Student</option>
+                <!-- <option value="student">Student</option> -->
                 <option value="teacher">teacher</option>
                 <option value="babysitter">babysitter</option>
             </select><br><br>

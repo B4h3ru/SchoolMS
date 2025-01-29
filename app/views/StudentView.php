@@ -3,21 +3,21 @@ include_once __DIR__.'/../controllers/StudentController.php';
 
 class StudentView extends StudentController{
 
-    protected function getStdInformation($account_id){
+    public function getStdInformation($account_id){
         $getStdInfo = $this->getStdInfo($account_id);
         return $getStdInfo;
 
         //something there 
 
     }
-    protected function getLearningSubjectList($grade){
+    public function getLearningSubjectList($grade){
         $getSubject = $this->getSubjectList($grade);
         return $getSubject;
 
          //something there 
 
     }
-    protected function getMarkResult($student_id){
+    public function getMarkResult($student_id){
         $getResult = $this->getRsut($student_id);
         return $getResult;
 
@@ -25,7 +25,7 @@ class StudentView extends StudentController{
 
 
     }
-    protected function getBabysitterInformation($clasRoomID){
+    public function getBabysitterInformation($clasRoomID){
         $getBabysiterinfo = $this->getBabysitterInfo($clasRoomID);
         return $getBabysiterinfo;
 
@@ -33,7 +33,7 @@ class StudentView extends StudentController{
 
     }
 
-    protected function WriteMsgForBabysitter($senderID,$receiverID,$msgText,$role){
+    public function WriteMsgForBabysitter($senderID,$receiverID,$msgText,$role){
         $isSend = $this->WriteMsg($senderID,$receiverID,$msgText,$role);
         return $isSend;
 
@@ -41,7 +41,7 @@ class StudentView extends StudentController{
 
 
     }
-    protected function getMsgFromBabysitter($senderID,$receiverID){
+    public function getMsgFromBabysitter($senderID,$receiverID){
         $getMsg = $this->getMsg($senderID,$receiverID);
         return $getMsg;
 
@@ -49,7 +49,7 @@ class StudentView extends StudentController{
 
 
     }
-    protected function isReadMsg($senderID,$receiverID){
+    public function isReadMsg($senderID,$receiverID){
         $isRead = $this->seenMsg($senderID,$receiverID);
         return $isRead;
 
@@ -57,21 +57,21 @@ class StudentView extends StudentController{
 
 
     }
-    protected function getDailyActivity($classroomID){
+    public function getDailyActivity($classroomID){
         $getActivity = $this->getActivity($classroomID);
         return $getActivity;
 
          //something there 
 
     }
-    protected function getStudentdResource(){
+    public function getStudentdResource(){
         $getR = $this->getStdResource();
         return $getR;
 
          //something there 
     }
     
-    protected function getSchoolAnnouncement(){
+    public function getSchoolAnnouncement(){
         $getAnn = $this->getAnnounce();
         return $getAnn;
 

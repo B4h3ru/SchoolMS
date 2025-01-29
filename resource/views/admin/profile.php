@@ -1,3 +1,20 @@
+<?php
+require_once __DIR__.'/../../../includes/include.inc.php';
+$manage = new View();
+session_start();
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $oldPass = htmlspecialchars(stripslashes(trim($_POST['OldPassword'])));
+    $newPass = htmlspecialchars(stripslashes(trim($_POST['NewPassword'])));
+    $confirmPass = htmlspecialchars(stripslashes(trim($_POST['ConfirmNewPassword'])));
+
+    // $username = $_SESSION['user'];
+
+    // if($manage->changeP($username,$oldPass,$newPass)){
+
+    // }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +35,7 @@
         </div>
         <div class="change_password" id="change_password">
            <h1> change password</h1>
-           <form action="" method="">
+           <form action="profile.php" method="POST">
                 <label for="Old password*">current password*</label><br>
                 <input type="password" name="OldPassword" id="" placeholder="Enter Current Password"><br><br>
                 <label for="Password">New Password*</label><br>

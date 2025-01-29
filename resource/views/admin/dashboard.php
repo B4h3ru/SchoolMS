@@ -2,7 +2,7 @@
 require_once __DIR__.'/../../../includes/include.inc.php';
 
 $manage = new AdminView();
-session_start();
+// session_start();
 // if(isset($_SESSION['user']) && $_SESSION['role']=='admin'){
     if($_SERVER['REQUEST_METHOD']=='POST'){
         // $subject_id = htmlspecialchars(stripslashes(trim($_POST['SubjectId'])));

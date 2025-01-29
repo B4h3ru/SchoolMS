@@ -12,7 +12,16 @@ class View extends Controller{
     public function Validate($username,$password){
         $Data = $this->LogedIn($username,$password);
         return $Data;  
+
+        
     }
+
+    public function changeP($username,$oldPassword,$newPassword){
+        $isChanged = $this->changePass($username,$oldPassword,$newPassword);
+        return$isChanged;
+
+
+      }
     // -----------------------------------------------------------------------------------------------------------------------
 
 

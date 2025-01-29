@@ -12,6 +12,11 @@ class Controller extends Model{
       return $loginData;
   }
 
+  protected function changePass($username,$oldPassword,$newPassword){
+    $isChanged = $this->changePassword($username,$oldPassword,$newPassword);
+    return $isChanged;
+  }
+
   //----------------------------------------------------------------------------------
 
 

@@ -3,7 +3,7 @@ include_once __DIR__.'/../controllers/BabysitterController.php';
 
 class BabysitterView extends BabaysitterController{
 
-    protected function getBabystrInfo($act_id){
+    public function getBabystrInfo($act_id){
         $getInfo = $this->getBabySitterInformation($act_id);
 
         return $getInfo;
@@ -14,7 +14,7 @@ class BabysitterView extends BabaysitterController{
 
 
     }
-    protected function getClassRoomStd($class_id){
+    public function getClassRoomStd($class_id){
         $getclassStd = $this->getClassRmStd($class_id);
 
         return $getclassStd;
@@ -25,7 +25,7 @@ class BabysitterView extends BabaysitterController{
 
 
     }
-    protected function AddClassActivity($classrmID,$subID,$activity){
+    public function AddClassActivity($classrmID,$subID,$activity){
         $isAdd = $this->AddActivity($classrmID,$subID,$activity);
 
         return $isAdd;
@@ -34,7 +34,7 @@ class BabysitterView extends BabaysitterController{
 
 
     }
-    protected function WtitMsgForStdP($senderID,$receiverID,$msgText,$role){
+    public function WtitMsgForStdP($senderID,$receiverID,$msgText,$role){
           $writemsg = $this->WriteMsg($senderID,$receiverID,$msgText,$role);
 
           return $writemsg;
@@ -47,7 +47,7 @@ class BabysitterView extends BabaysitterController{
 
 
     }
-    protected function getMsgFromStdP($senderID,$receiverID){
+    public function getMsgFromStdP($senderID,$receiverID){
         $getM = $this->getMsg($senderID,$receiverID);
 
         return $getM;
@@ -56,13 +56,13 @@ class BabysitterView extends BabaysitterController{
 
 
     }
-    protected function IsSeenMsg($senderID,$receiverID){
+    public function IsSeenMsg($senderID,$receiverID){
         $seen = $this->seenMsg($senderID,$receiverID);
         return $seen;
 
 
     }
-    protected function getActivity($classroomID){
+    public function getActivity($classroomID){
         $getActvty = $this->getDailyClassActivity($classroomID);
 
         return $getActvty;
@@ -70,7 +70,7 @@ class BabysitterView extends BabaysitterController{
 
     }
    
-    protected function getAnn(){
+    public function getAnn(){
         $getAnnounce =$this->getAnnounce();
 
         return $getAnnounce;

@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #54a5bb;
+    color: white;
+}
+button{
+    cursor: pointer;
+
+}
+.dashboard {
+    text-align: left;
+    padding: 5px 0px 10px 20px;
+    color: #000;
+    margin-top: -50px;
+   
+}
+.dashboard h1 {
+    margin-bottom: 5px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 45px;
+}
+.dashboard p {
+    font-size: 20px;
+}
+.grid {
+    height: 500px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    justify-self: center;
+    padding: 20px;
+}
+.card {
+    background-color: #d1c9c9;
+    color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.card  a i{
+    font-size: 100px;
+    padding: 10px;
+    color: rgb(66, 64, 64);
+    float: right;
+
+}
+.card a{
+    text-decoration: none;
+    border: none;
+   
+}
+.card h2{
+   padding: 20px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card p{
+    padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+     font-size: 20px;
+}
+
+.action-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-around;
+}
+.action-buttons button {
+    height: 100px;
+    width: 48%;
+    background-color: #d1c9c9;
+    color: black;
+    border: none;
+    padding: 20px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.action-buttons button:hover {
+    background-color: #25b956;
+    color: #fff;
+}
+.add_subject,
+.add_class{
+    margin-left: 300px;
+    margin-top: 100px;
+    display: none;
+    color: #000;
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  
+
+    
+}
+.add_subject h1,
+.add_class h1{
+    font-size: 30px;
+}
+.add_subject label,
+.add_class label{
+    font-size: 20px;
+}
+.add_subject input[type="text"],
+.add_subject input[type="number"],
+.add_class input[type="text"]{
+    padding: 10px;
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
+    border: none;
+}
+.add_subject input[type="submit"],
+.add_class input[type="submit"]{
+    height: 40px;
+    width: 250px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 20px;
+    background-color: rgb(47, 192, 47);
+    font-weight: bold;
+}
+
+
+/* talbe */
+     
+.Icon{
+    color: #000;
+    margin: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.Icon h1{
+    font-size: 40px;
+    padding: 0px 0px 30px 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    color: #000;
+}
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+}
+.details-btn {
+    background-color: rgb(20, 238, 0);
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 10px;
+
+}
+.details-btn:hover {
+    background-color: #17f534;
+}
+#stuedntTable,
+#teacherTable,
+#BabysitterTable,
+#adminTable{
+    display: none;
+}
+@media (min-width:100px)and (max-width:960px) {
+  .dashboard h1{
+     font-size: 40px;
+
+  } 
+  .dashboard p{
+    font-size: 20px;
+  }  
+   .card{
+   height: 80%;
+
+   
+   }
+   .card a i{
+    font-size: 40px;
+   }
+   .action-buttons button {
+    height: 60px;
+    width: 48%;
+   
+}
+}

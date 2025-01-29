@@ -1,0 +1,20 @@
+.footer {
+    position: absolute;
+    left: 0;
+    top: 525px;
+    width: 97%;
+text-align: center;
+padding: 20px;
+background-color: #d1c9c9;
+color: #000;
+font-size: 20px;
+margin-top: 11%;
+
+}
+@media (min-width:100px)and (max-width:960px) {
+    .footer{
+        position: relative;
+        left: 0px;
+        top:100px;
+    }
+}

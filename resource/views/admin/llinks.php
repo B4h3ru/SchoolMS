@@ -3,23 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/links.css">
     <title>Document</title>
-    <style>
-        
-.profile{
-    text-align: right;
-}
-.profile button{
-    background-color: transparent;
-    border: none;
-}
-.profile i{
-    font-size: 40px;
-    color: #000;
-    padding: 10px;
-    margin-right: 10px;
-}
-    </style>
 </head>
 <body>
 <div class="profile">

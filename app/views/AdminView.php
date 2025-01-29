@@ -7,8 +7,8 @@ class AdminView extends AdminController {
         $addEp = $this->addEmp($acccountId,$firstName,$midleName,$lastName,$gender,$adress,$phoneNumber,$Email,$role,$dob);
         return $addEp;
     }
-    public function registerStd($acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob){
-        $addst = $this->regStd($acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob);
+    public function registerStd($std_id,$acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob){
+        $addst = $this->regStd($std_id,$acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob);
         return $addst;
     }
     public function addStdParent($pID,$fname,$lName,$address,$gender,$phoneNumber,$email,$dob){
@@ -38,8 +38,8 @@ class AdminView extends AdminController {
         return $assignStd;
     }
 
-    public function assignTchC($teacherID,$subjectID,$classroomID){
-        $assignTch = $this->assignTchClass($teacherID,$subjectID,$classroomID);
+    public function assignTchC($classroomID,$teacherID,$subjectID){
+        $assignTch = $this->assignTchClass($classroomID,$teacherID,$subjectID);
         return $assignTch;
     }
 
@@ -52,39 +52,32 @@ class AdminView extends AdminController {
         $addResce = $this->addRsrce($subjID,$path,$role);
         return $addResce;
     }
-
-    // ----------------------------------------------------------------------------------------------------------------------
-
-    public function checkLogin($username,$password){
-        $Data = $this->LogedIn($username,$password);
-        // return $Data;  
-    }
-    // -----------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------
 
     public function getAdmin(){
         $adminList = $this->getAllAdminList();
-        // return $adminList;
+        return $adminList;
     }
     public function getTeacher(){
         $teacherList = $this->getAllTeacherList();
-        // return $teacherList;
+        return $teacherList;
     }
     public function getBabysitter(){
         $babysitterList = $this->getAllBabysitterList();
-        // return $babysitterList;
+        return $babysitterList;
     }
     public function getStudent(){
         $studentList = $this->getAllStudentList();
-        // return $studentList;
+        return $studentList;
     }
     public function getClassroom(){
         $classroom = $this->getAllClassRm();
-        // return $classroom;
+        return $classroom;
     }
 
     public function getSubject(){
         $subject = $this->getAllSub();
-        // return $subject;
+        return $subject;
     }
 
 

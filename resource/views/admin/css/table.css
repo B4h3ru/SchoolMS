@@ -1,0 +1,45 @@
+    
+.Icon{
+    color: #000;
+    margin: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.Icon h1{
+    font-size: 50px;
+    padding: 20px 0px 30px 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    color: #000;
+}
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+}
+.details-btn {
+    background-color: rgb(20, 238, 0);
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 10px;
+
+}
+.details-btn:hover {
+    background-color: #17f534;
+}
+#stuedntTable,
+#teacherTable,
+#BabysitterTable,
+#adminTable{
+    display: none;
+}

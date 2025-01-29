@@ -1,10 +1,18 @@
+<?php
+require_once __DIR__.'/../../../includes/include.inc.php';
+
+$manage = new TeacherView();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Profile</title>
-    <link rel="stylesheet" href="../../assests/style/tpro.css">
+    <link rel="stylesheet" href="../../assats/style/tpro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
      <title>Teacher Profile</title>
 </head>
@@ -29,7 +37,7 @@
         <div class="right-side">
             <div id="dynamic-content">
                 <div class="profile">
-                    <img src="../../assests/images/download.jfif" alt="">
+                    <img src="../../assats/images/download.jfif" alt="">
                    <h1>Beletu kebede<br>TCD-1234</h1>
                 </div>
                 
@@ -38,7 +46,7 @@
         </div>
     </div>
 
-    <script src="../../assests/js/tpro.js">
+    <script src="../../assats/js/tpro.js">
     
     </script>
 </body>

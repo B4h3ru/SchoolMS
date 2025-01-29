@@ -60,7 +60,7 @@ class BabysitterModel extends Db {
             return false;
        }
     }
-    protected function WtiteMessage($senderID,$receiverID,$msgText,$role){
+    protected function WriteMessage($senderID,$receiverID,$msgText,$role){
         try{
             $con = $this->connect();
             $sql = "INSERT INTO massege(sender_id,receiver_id,message_text,role); ";
@@ -123,27 +123,7 @@ class BabysitterModel extends Db {
             return null;
        }
     }
-    protected function Login($username,$password){
-        try{ 
-           $con = $this->connect();
-           $sql = "select * from account where username=? and password=?";
-           $stmt = $con->prepare($sql);
-           $stmt->bind_param('ss',$username,$password);
-           $stmt->execute();
-           $result = $stmt->get_result();
-           if($result != null){
-              $stmt->close();
-              $con->close();
-              return $result;
-           }
-        }
-        catch(Exception $e){
-           $con->close();
-        //    echo "<script>alert(".$e.");</script>";
-           return null;
-        }
-  
-     }
+   
     protected function getAnnouncement(){
         try{
             $con = $this->connect();

@@ -6,8 +6,8 @@ class AdminController extends AdminModel {
         $addEp = $this->addEmployee($acccountId,$firstName,$midleName,$lastName,$gender,$adress,$phoneNumber,$Email,$role,$dob);
         return $addEp;
     }
-    protected function regStd($acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob){
-        $addst = $this->registerStudent($acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob);
+    protected function regStd($std_id,$acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob){
+        $addst = $this->registerStudent($std_id,$acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob);
         return $addst;
     }
     protected function addStdP($pID,$fname,$lName,$address,$gender,$phoneNumber,$email,$dob){
@@ -36,8 +36,8 @@ class AdminController extends AdminModel {
         return $assignStd;
     }
 
-    protected function assignTchClass($teacherID,$subjectID,$classroomID){
-        $assignTch = $this->assignTeachingClass($teacherID,$subjectID,$classroomID);
+    protected function assignTchClass($classroomID,$teacherID,$subjectID){
+        $assignTch = $this->assignTeachingClass($classroomID,$teacherID,$subjectID);
         return $assignTch;
     }
 
@@ -53,12 +53,6 @@ class AdminController extends AdminModel {
 
     // ----------------------------------------------------------------------------------------------------------------------------------------
 
-    protected function LogedIn($username,$password){
-        $loginData = $this->adminLogin($username,$password);
-        return $loginData;
-    }
-
-    //----------------------------------------------------------------------------------
 
     protected function getAllAdminList(){
         $adminlist = $this->getAllAdmin();

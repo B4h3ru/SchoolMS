@@ -4,17 +4,6 @@ include_once __DIR__.'/../database/Db.php';
 
 class AdminModel extends Db {
 
-
-   // public function checkConnection(){
-   //      $con = $this->connect();
-   //      if($con){
-   //       echo "connection is successfuly connected ";
-   //      } 
-   //      else {
-   //       echo "connaction failed"; 
-   //      } 
-   //  }
-    // ========================================================================================================================================================
    
     protected function addEmployee($acccountId,$firstName,$midleName,$lastName,$gender,$adress,$phoneNumber,$Email,$role,$dob)
     {
@@ -48,20 +37,21 @@ class AdminModel extends Db {
 
     }
 
-    protected function registerStudent($acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob){
+    protected function registerStudent($stdID,$acccountId,$parentId,$firstName,$midleName,$lastName,$adress,$gender,$phoneNumber,$dob){
       try{
          $connection = $this->connect(); //creating connection 
          $dob = (string)$dob; //cast to date to string
          $addQuery= "insert into students(student_id,account_id,parent_id,first_name,midle_name,last_name,gender,address,phone_number,date_of_birth)
-                     VALUES(?,?,?,?,?,?,?,?,?,?)";
-         $std_id ='std'. (string)floor(microtime(true) * 10000).rand(10,10000); //
+                     VALUES(?,?,?,?,?,?,?,?,?,?);";
+         // $std_id ='std'. (string)floor(microtime(true) * 10000).rand(10,10000); //
          $stmnt = $connection->prepare($addQuery);
-         $stmnt->bind_param("ssssssssis",$std_id,$acccountId,$parentId,$firstName,$midleName,$lastName,$gender,$adress,$phoneNumber,$dob);
+         $stmnt->bind_param("ssssssssis",$stdID,$acccountId,$parentId,$firstName,$midleName,$lastName,$gender,$adress,$phoneNumber,$dob);
          $stmnt->execute();
          $stmnt->close();
          $connection->close();
          return true;
       }catch(Exception $e){
+         echo $e;
          $connection->close();
          return false;
       }
@@ -108,8 +98,8 @@ class AdminModel extends Db {
     protected function addClassroom($section,$grade){
       try{
          $connection = $this->connect();
-         $classromID= $grade.$section;
-         $sqlQuery = "insert int classroom(classroom_id,section,grade) 
+         $classromID = $grade.$section;
+         $sqlQuery = "insert into classroom(classroom_id,section,grade) 
                      VALUES(?,?,?)";
          $stmt = $connection->prepare($sqlQuery);
          $stmt->bind_param("ssi",$classromID,$section,$grade);
@@ -118,6 +108,7 @@ class AdminModel extends Db {
          $connection->close();
          return true;
       }catch(Exception $e){
+         // echo $e;
          $connection->close();
          return false;
       }
@@ -177,10 +168,10 @@ class AdminModel extends Db {
       }
     }
 
-    protected function assignTeachingClass($teacherID,$subjectID,$classroomID){
+    protected function assignTeachingClass($classroomID,$teacherID,$subjectID){
       try{
          $con = $this->connect();
-        $sqlQ = "insert into teachingclassroom(classroom_id ,empolyee_id,subject_id )
+        $sqlQ = "insert into teachingclassroom(classroom_id,empolyee_id,subject_id )
                  VALUES(?,?,?)";
         $stmnt = $con->prepare($sqlQ);
         $stmnt->bind_param("ssi",$classroomID,$teacherID,$subjectID);
@@ -189,6 +180,7 @@ class AdminModel extends Db {
         $con->close();
         return true;
      }catch(Exception $e){
+         // echo $e;
         $con->close();
         return false;
      }
@@ -197,7 +189,7 @@ class AdminModel extends Db {
    protected function assignBabysitterClass($babsiiterID,$classroomID){
       try{
          $con = $this->connect();
-        $sqlQ = "insert into babysitterclassrom(empolyee_id,classroom_id)
+        $sqlQ = "insert into babysitterclassrom(employee_id,classrom_id)
                  VALUES(?,?)";
         $stmnt = $con->prepare($sqlQ);
         $stmnt->bind_param("ss",$babsiiterID,$classroomID);
@@ -214,7 +206,7 @@ class AdminModel extends Db {
    protected function addResource($subjID,$path,$role){
       try{
          $con = $this->connect();
-        $sqlQ = "insert into resource(subject_id ,resouce_file_path,role)
+        $sqlQ = "insert into resource(subject_id,resouce_file_path,role)
                  VALUES(?,?,?)";
         $stmnt = $con->prepare($sqlQ);
         $stmnt->bind_param("iss",$subjID,$path,$role);
@@ -224,32 +216,9 @@ class AdminModel extends Db {
         return true;
      }catch(Exception $e){
         $con->close();
-        echo "<script>alert(".$e.");</script>";
+      //   echo "<script>alert(".$e.");</script>";
         return false;
      }
-   }
-
-   //=============================================================================================
-
-   protected function adminLogin($username,$password){
-      try{ 
-         $con = $this->connect();
-         $sql = "select * from account where username=? and password=?";
-         $stmt = $con->prepare($sql);
-         $stmt->bind_param('ss',$username,$password);
-         $stmt->execute();
-         $result = $stmt->get_result();
-         if($result != null){
-            $stmt->close();
-            $con->close();
-            return $result;
-         }
-      }
-      catch(Exception $e){
-         $con->close();
-         return null;
-      }
-
    }
 
    //=============================================================================================

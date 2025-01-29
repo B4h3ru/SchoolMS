@@ -1,0 +1,44 @@
+.announce_page input[type="submit"]{
+    width: 200px;
+    height: 40px;
+    margin: 20px 0px 0px 150px;
+    border: none;
+    background-color: #17f534;
+    border-radius: 10px;
+}
+.announce_page input[type="submit"]:hover{
+    background-color:rgb(18, 138, 34);
+
+}
+.announce_page
+{
+    margin: 30px;
+    color: #000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.announce_page h1
+{
+    margin: 40px;
+    margin-bottom: 100px;
+}
+.announce_page div
+{
+    margin: 30px;
+}
+.announce_page .subject{
+    height: 50px;
+    width: 300px;
+    font-size: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.announce_page .body{
+  width: 320px;
+  height: 100px;
+  font-size: 30px;
+  outline: none;
+    border: none;
+    border-radius: 5px;
+
+}

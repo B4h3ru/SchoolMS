@@ -27,7 +27,7 @@ class StudentModel Extends Db{
             $con = $this->connect();
             $sql = "Select * from subject where grade = ?";
             $stmt =  $con->prepare($sql);
-            $stmt->bind_param('s',$student_id);
+            $stmt->bind_param('s',$grade);
             $stmt->execute();
             $res = $stmt->get_result();
             $stmt->close();
@@ -63,7 +63,7 @@ class StudentModel Extends Db{
             $sql = "SELECT * FROM babysitterclassrom 
                     JOIN employee ON employee.employee_id = babysitterclassrom.employee_id
                     WHERE  babysitterclassrom.classrom_id = ?;";
-                     $stmt =  $con->prepare($sql);
+            $stmt =  $con->prepare($sql);
             $stmt->bind_param('s',$clasRoomID);
             $stmt->execute();
             $res = $stmt->get_result();
@@ -81,7 +81,8 @@ class StudentModel Extends Db{
     protected function WriteMessage($senderID,$receiverID,$msgText,$role){
         try{
             $con = $this->connect();
-            $sql = "INSERT INTO massege(sender_id,receiver_id,message_text,role); ";
+            $sql = "INSERT INTO massege(sender_id,receiver_id,message_text,role)
+                    values(?,?,?,?); ";
             $stmt = $con->prepare($sql);
             $stmt->bind_param('ssss',$senderID,$receiverID,$msgText,$role);
             $stmt->execute();
@@ -115,7 +116,7 @@ protected function getMessage($senderID,$receiverID){
     protected function seenMessage($senderID,$receiverID){
         try{
             $con = $this->connect();
-            $SqlUpdate = "UPDATE massege SET read_status = 0 WHERE sender_id = ? AND receiver_id = ?; ";
+            $SqlUpdate = "UPDATE massege SET read_status = 1 WHERE sender_id = ? AND receiver_id = ?; ";
             $stmt = $con->prepare($SqlUpdate);
             $stmt->bind_param('ss',$senderID,$receiverID);
             $stmt->execute();

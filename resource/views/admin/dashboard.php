@@ -2,28 +2,35 @@
 require_once __DIR__.'/../../../includes/include.inc.php';
 
 $manage = new AdminView();
-// session_start();
-// if(isset($_SESSION['user']) && $_SESSION['role']=='admin'){
-    if($_SERVER['REQUEST_METHOD']=='POST'){
-        // $subject_id = htmlspecialchars(stripslashes(trim($_POST['SubjectId'])));
-        $subjectName = htmlspecialchars(stripslashes(trim($_POST['SubjectName'])));
-        $grade = htmlspecialchars(stripslashes(trim($_POST['Grade'])));
-        $dec = htmlspecialchars(stripslashes(trim($_POST['Discription'])));
 
-        if($manage->addS($subjectName,$grade,$dec)){
-            echo '<script>alert("Subject is successfuly added");</script>';
-        }
-        else{
-            echo '<script>alert("subject adding is failed");</script>';
+session_start();
+if(!isset($_SESSION['user'])){
+    header('location: ../../../index.php');
+    // exit();
+}  
+if(isset($_SESSION['user'])){
+    if($_SESSION['role'] != 'admin'){
+    header('location: ../../../index.php');
+    exit();
+}
 
-        }
+}
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    // $subject_id = htmlspecialchars(stripslashes(trim($_POST['SubjectId'])));
+    $subjectName = htmlspecialchars(stripslashes(trim($_POST['SubjectName'])));
+    $grade = htmlspecialchars(stripslashes(trim($_POST['Grade'])));
+    $dec = htmlspecialchars(stripslashes(trim($_POST['Discription'])));
+
+    if($manage->addS($subjectName,$grade,$dec)){
+        echo '<script>alert("Subject is successfuly added");</script>';
+    }
+    else{
+        echo '<script>alert("subject adding is failed");</script>';
 
     }
 
-// }else{
-// header('loaction: /../../../index.php');
-// exit();
-// }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

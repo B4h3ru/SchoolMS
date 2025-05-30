@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
             $_SESSION['user'] = $username;
             $_SESSION['role'] = 'student';
             $_SESSION['accountID'] = $data['account_id'];
-
+            
             // header('location: resource/views/admin/dashboard.php');
             // exit();
             

@@ -7,6 +7,7 @@ class Db{
     private $dbName = "school";
 
     protected function connect(){
+        
         $con = new mysqli($this->host,$this->username,$this->password,$this->dbName);
         if($con){
             return $con;

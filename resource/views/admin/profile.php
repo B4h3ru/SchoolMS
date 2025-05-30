@@ -1,17 +1,33 @@
 <?php
 require_once __DIR__.'/../../../includes/include.inc.php';
 $manage = new View();
+
 session_start();
+if(!isset($_SESSION['user'])){
+    header('location: ../../../index.php');
+    // exit();
+}  
+if(isset($_SESSION['user'])){
+    if($_SESSION['role'] != 'admin'){
+    header('location: ../../../index.php');
+    exit();
+}
+
+}
+
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $oldPass = htmlspecialchars(stripslashes(trim($_POST['OldPassword'])));
     $newPass = htmlspecialchars(stripslashes(trim($_POST['NewPassword'])));
     $confirmPass = htmlspecialchars(stripslashes(trim($_POST['ConfirmNewPassword'])));
 
-    // $username = $_SESSION['user'];
+    $username = $_SESSION['user'];
 
-    // if($manage->changeP($username,$oldPass,$newPass)){
 
-    // }
+    if($newPass == $confirmPass ){
+        if($manage->changeP($username,$oldPass,$newPass)){
+            echo '<script>alert("Password is successfuly changed");</script>';
+        }
+    }
 }
 ?>
 

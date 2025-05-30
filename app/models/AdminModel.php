@@ -216,7 +216,6 @@ class AdminModel extends Db {
         return true;
      }catch(Exception $e){
         $con->close();
-      //   echo "<script>alert(".$e.");</script>";
         return false;
      }
    }

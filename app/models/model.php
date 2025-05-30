@@ -16,7 +16,7 @@ class Model extends Db{
        $stmt->bind_param('ss',$username,$password);
        $stmt->execute();
        $result = $stmt->get_result();
-       if($result != null){
+       if(mysqli_num_rows($result) > 0){
           $stmt->close();
           $con->close();
             return $result;

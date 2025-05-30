@@ -2,7 +2,20 @@
 require_once __DIR__.'/../../../includes/include.inc.php';
 
 $manage = new AdminView();
-// if(isset($_SESSION['user']) && $_SESSION['user']=='admin'){
+
+session_start();
+if(!isset($_SESSION['user'])){
+    header('location: ../../../index.php');
+    // exit();
+}  
+if(isset($_SESSION['user'])){
+    if($_SESSION['role'] != 'admin'){
+    header('location: ../../../index.php');
+    exit();
+}
+
+}
+
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $fname = htmlspecialchars(stripslashes(trim($_POST['FirstName'])));
         $mname = htmlspecialchars(stripslashes(trim($_POST['MiddleName'])));
@@ -29,7 +42,6 @@ $manage = new AdminView();
         
 
     }
-// }else{  }
 
 
 ?>

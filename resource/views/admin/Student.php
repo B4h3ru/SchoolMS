@@ -3,7 +3,20 @@ require_once __DIR__.'/../../../includes/include.inc.php';
 
 $manage = new AdminView();
 
-// if(isset($_SESSION['user']) && $_SESSION['user']=='admin'){
+session_start();
+if(!isset($_SESSION['user'])){
+    header('location: ../../../index.php');
+    // exit();
+}  
+if(isset($_SESSION['user'])){
+    if($_SESSION['role'] != 'admin'){
+    header('location: ../../../index.php');
+    exit();
+}
+
+}
+
+
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $fname = htmlspecialchars(stripslashes(trim($_POST['FirstName'])));
         $mname = htmlspecialchars(stripslashes(trim($_POST['MiddleName'])));
@@ -27,16 +40,14 @@ $manage = new AdminView();
 
 
         $std_id = 'Std'. uniqid().rand(10,10000);
-        $accountID = 'Ba'.uniqid().rand(1000,10000);
+        $accountID = 'Std'.uniqid().rand(1000,10000);
         $parentID = 'Pa'.uniqid();
         $username = '@'.$fname;
         $password = $fname.'@'.rand(1000,9999);
         $role = "student";
 
         if($manage->addStdParent($parentID,$Pfname,$Pgender,$Plname,$Paddres,$PphoneNumber,$Pemail,$Pdob)){
-            // echo '<script>alert("Student parent Successfuly Added");</script>';
             if($manage->createA($accountID,$username,$password,$role)){
-                // echo '<script>alert("Student account Successfuly Added");</script>';
                 if($manage->registerStd($std_id,$accountID,$parentID,$fname,$mname,$lname,$addres,$gender,$phoneNumber,$dob)){
                     // echo '<script>alert("Student information Successfuly Added");</script>';
                     if($manage->assignStdC($std_id,$classRmID)){
@@ -64,7 +75,7 @@ $manage = new AdminView();
         
 
     }
-// }else{}
+
 
 
 ?>
